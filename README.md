@@ -4,7 +4,7 @@ A simple beginner-friendly Java project demonstrating how to connect to a MySQL 
 
 ---
 
-## 📌 What This Program Does
+##  What This Program Does
 
 When you run `Main.java`, it automatically does 6 steps:
 
@@ -17,7 +17,7 @@ When you run `Main.java`, it automatically does 6 steps:
 
 ---
 
-## 📋 Requirements
+##  Requirements
 
 Before running, make sure you have:
 - **Java 21** (or Java 17+)
@@ -26,7 +26,7 @@ Before running, make sure you have:
 
 ---
 
-## 🚀 How to Run
+##  How to Run
 
 ### Step 1: Set your MySQL password
 
