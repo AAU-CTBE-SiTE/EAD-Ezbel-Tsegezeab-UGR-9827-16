@@ -1,33 +1,41 @@
-# Lab 1: Java Maven Starter Project
+# Lab 4 – Spring Core: Annotation-Based Configuration
 
-A simple beginner-friendly Java project demonstrating how to connect to a MySQL database using JDBC and perform basic database operations (CRUD).
+## Description
+This project demonstrates Spring Core concepts using annotation-based Java configuration instead of XML-based configuration.
 
----
+The Spring IoC container manages bean creation, dependency injection, and bean scopes.
 
-##  What This Program Does
 
-When you run `Main.java`, it automatically does 6 steps:
 
-1. **Creates Database & Table**: Creates a database called `StudentsDB` and a table called `students`.
-2. **Inserts Students**: Adds 11 students with their ID, name, and grade.
-3. **Displays Data**: Prints the first 5 students to the console.
-4. **Updates a Record**: Changes student #1's first name to `"Michael"`.
-5. **Deletes a Record**: Removes student #11.
-6. **Calculates Average**: Calculates and prints the average grade of the remaining students.
+## Concepts Implemented
 
----
+1. Inversion of Control (IoC)
+2. Spring Bean Creation
+3. Literal Dependency Injection
+4. Setter-Based Dependency Injection
+5. Constructor-Based Dependency Injection
+6. Object Dependency Injection
+7. Collection Dependency Injection
+8. Singleton Bean Scope
+9. Prototype Bean Scope
 
-##  Requirements
+## Annotation-Based Configuration
 
-Before running, make sure you have:
-- **Java 21** (or Java 17+)
-- **MySQL Server** installed and running on your computer (port `3306`)
-- **IntelliJ IDEA** (or any Java IDE)
+The project uses:
 
----
+- `@Configuration` – Defines the Spring configuration class.
+- `@Bean` – Registers objects as Spring beans.
+- `@Scope("singleton")` – Defines singleton scope.
+- `@Scope("prototype")` – Defines prototype scope.
+- `AnnotationConfigApplicationContext` – Initializes the Spring IoC container.
 
-##  How to Run
 
-### Step 1: Set your MySQL password
 
-### Step 2: Run the program
+## Expected Results
+
+- Spring successfully creates and manages Student, Address, and Subject beans.
+- Dependency injection works successfully.
+- Multiple Subject beans are injected into a List.
+- Singleton scope returns the same object.
+- Prototype scope returns different objects.
+
