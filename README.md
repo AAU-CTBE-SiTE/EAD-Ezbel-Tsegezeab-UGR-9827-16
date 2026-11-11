@@ -1,33 +1,46 @@
-# Lab 1: Java JDBC with MySQL
+# Spring Boot Actor Management
 
-A simple beginner-friendly Java project demonstrating how to connect to a MySQL database using JDBC and perform basic database operations (CRUD).
+## Overview
 
----
+This project is a RESTful API developed using Spring Boot
+to manage actor information.
 
-##  What This Program Does
+## Technologies Used
 
-When you run `Main.java`, it automatically does 6 steps:
+- Java 21
+- Spring Boot
+- Maven
+- REST API
+- Postman
 
-1. **Creates Database & Table**: Creates a database called `StudentsDB` and a table called `students`.
-2. **Inserts Students**: Adds 11 students with their ID, name, and grade.
-3. **Displays Data**: Prints the first 5 students to the console.
-4. **Updates a Record**: Changes student #1's first name to `"Michael"`.
-5. **Deletes a Record**: Removes student #11.
-6. **Calculates Average**: Calculates and prints the average grade of the remaining students.
+## Features
 
----
+- Get all actors
+- Get an actor by ID
+- Add a new actor
+- Update actor information
+- Delete an actor
 
-##  Requirements
+## API Endpoints
 
-Before running, make sure you have:
-- **Java 21** (or Java 17+)
-- **MySQL Server** installed and running on your computer (port `3306`)
-- **IntelliJ IDEA** (or any Java IDE)
+Base URL: `/api/v1/actor`
 
----
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/v1/actor` | Get all actors |
+| GET | `/api/v1/actor/{id}` | Get actor by ID |
+| POST | `/api/v1/actor` | Add an actor |
+| PUT | `/api/v1/actor/{id}` | Update an actor |
+| DELETE | `/api/v1/actor/{id}` | Delete an actor |
 
-##  How to Run
+## Data Storage
 
-### Step 1: Set your MySQL password
+Actor information is stored using an ArrayList.
+No database is required for this implementation.
 
-### Step 2: Run the program
+## Running the Application
+
+Run the application using IntelliJ IDEA or Maven.
+
+```bash
+./mvnw spring-boot:run
