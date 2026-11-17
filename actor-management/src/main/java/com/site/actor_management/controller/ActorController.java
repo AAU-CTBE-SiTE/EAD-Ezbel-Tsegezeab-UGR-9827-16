@@ -1,6 +1,8 @@
 package com.site.actor_management.controller;
 
+import com.site.actor_management.Service.ActorService;
 import com.site.actor_management.model.Actor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,61 +10,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/actor")
+@RequestMapping("/api/v1")
 public class ActorController {
-    List<Actor> actors = new ArrayList<>();
-    public ActorController() {
-        actors.add(new Actor(1, "John Doe", "The Great adventure"));
-        actors.add(new Actor(2, "Jane Smith", "Mystery Island"));
-    }
+    @Autowired
+            private ActorService actorService;
+
+
+
     //Read All Actors
-        @GetMapping
-    public List<Actor> getActorDetails(){
-        return actors;
+        @GetMapping("/actors")
+    public List<Actor> getAllActor(){
+        return actorService.getAllActors();
     }
 
     //Read Actors By Id
-    @GetMapping("/{id}")
-    public Actor getActorById(@PathVariable int id){
-        for (Actor actor : actors){
-            if ( actor.getId() == id){
-                return actor;
+    @GetMapping("/actor/{id}")
+    public Actor getActorById(@PathVariable long id){
+                return actorService.getActorById(id);
             }
-        }
-        return null;
-    }
+
     // CREATE NEW ACTOR
-    @PostMapping
+    @PostMapping("/actors")
     public Actor addActor(@RequestBody Actor actor) {
-        actors.add(actor);
-        return actor;
+        return actorService.addActor(actor);
     }
     // UPDATE ACTOR
-    @PutMapping("/{id}")
-    public Actor updateActor(@PathVariable int id, @RequestBody Actor updatedActor) {
+    @PutMapping("/actor/{id}")
+    public Actor updateActor(@PathVariable long id, @RequestBody Actor updatedActor) {
+        return actorService.updateActor(id, updatedActor);
 
-        for (Actor actor : actors) {
-            if (actor.getId() == id) {
-
-                actor.setName(updatedActor.getName());
-                actor.setMovieName(updatedActor.getMovieName());
-
-                return actor;
-            }
-        }
-
-        return null;
     }
 
+
     // DELETE ACTOR
-    @DeleteMapping("/{id}")
-    public String deleteActorById(@PathVariable int id){
-        for (Actor actor : actors){
-            if ( actor.getId() == id) {
-                actors.remove(actor);
-                return "Actor deleted successfully";
-            }
-            }
-        return "Actor not found";
+    @DeleteMapping("/actor/{id}")
+    public String deleteActorById(@PathVariable long id){
+
+        return actorService.deleteActor(id);
     }
 }
